@@ -1,0 +1,28 @@
+.square {
+    border: solid 1px black;
+    width: 150px;
+    height: 150px;
+    margin: 1px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#gameboard {
+    font-size: 7em;
+    font-family: monospace;
+    margin: auto;
+}
+body{
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+#container{
+    display:flex;
+    justify-content: center;
+}
