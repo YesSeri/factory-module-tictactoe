@@ -11,7 +11,7 @@
 
 <body>
     <h1>Tic-Tac-Toe for the Odin Project</h1>
-    <div class='player-info'>
+    <div id='player-info'>
         <div>
             <label for="p1name">p1 name:</label>
             <input type="text" id="p1name" name="p1name">
@@ -22,8 +22,8 @@
         </div>
         <button id='start-btn'>Start</button>
     </div>
-    <div class='container' id='container'>
-        <div><span>p1: <span id='p1-span'></span></span><span>p2: <span id='p2-span'></span></span></div>
+    <div class='hidden' id='container'>
+        <div><span id='p1-span'></span> vs <span id='p2-span'></span></div>
         <div id="gameboard">
             <div class="row">
                 <div id="square-0" class="square"></div>
@@ -42,7 +42,10 @@
             </div>
         </div>
     </div>
-    <button id="replay-btn" class='hidden'>Play Again</button>
+    <div id='replay-div' class='hidden'>
+        <p id='win-message'></p>
+        <button id="replay-btn">Play Again</button>
+    </div>
     <script src="scripts.js"></script>
 </body>
 

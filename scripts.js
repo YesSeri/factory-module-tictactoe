@@ -65,7 +65,7 @@ const gameboard = (() => {
 const gameinfo = (() => {
     let _turn = gameboard.marker.X
     let gameover = false;
-    let active = null
+    let _active = null
 
     let _p1 = null
     let _p2 = null
@@ -77,7 +77,11 @@ const gameinfo = (() => {
         return _turn;
     }
     function setActive() {
-        active = getTurn() === _p1.marker ? _p1 : _p2;
+        _active = getTurn() === _p1.marker ? _p1 : _p2;
+        console.log(_active);
+    }
+    function getActive() {
+        return _active
     }
 
     function createPlayers(name1, name2) {
@@ -92,9 +96,9 @@ const gameinfo = (() => {
         nextTurn,
         getTurn,
         setActive,
+        getActive,
         createPlayers,
         gameover,
-        active
     }
 })();
 function playerFactory(name, marker) {
@@ -117,9 +121,10 @@ const controller = (() => {
 
     const _squareDivs = document.getElementsByClassName('square')
 
-    const replayBtn = document.getElementById('replay-btn');
+    const replayDiv = document.getElementById('replay-div');
     const startBtn = document.getElementById('start-btn');
     function initEventListeners() {
+        const replayBtn = document.getElementById('replay-btn');
         for (const div of _squareDivs) {
             div.addEventListener('click', (e) => {
                 if (gameinfo.gameover) return;
@@ -129,38 +134,61 @@ const controller = (() => {
         }
         replayBtn.addEventListener('click', (e) => {
             gameboard.resetGame();
-            replayBtn.classList.remove('hidden');
+            replayDiv.classList.add('hidden');
         })
         startBtn.addEventListener('click', (e) => {
             const names = _getNames()
             gameinfo.createPlayers(names[0], names[1])
-            console.log(names);
+            _addNames(names)
+            _hidePlayerInfoDiv()
             _showGame();
         })
     }
     function _doTurn(idx) {
         gameinfo.setActive();
-        if (gameinfo.active.makeMove(idx)) {
+        if (gameinfo.getActive().makeMove(idx)) {
             gameinfo.nextTurn();
         }
         console.log(gameboard.checkWin(), gameboard.checkDraw());
         if (gameboard.checkWin() || gameboard.checkDraw()) {
             gameinfo.gameover = true;
-            replayBtn.classList.remove('hidden');
+            _setWinMessage();
+            replayDiv.classList.remove('hidden');
         };
+    }
+    function _setWinMessage(){
+        const message  = document.getElementById('win-message')
+        if(gameboard.checkWin()){
+            console.log(gameinfo.getActive);
+            message.innerHTML = `Congratulations to ${gameinfo.getActive().name}`
+        } else{
+            message.innerHTML = 'It is a draw.'
+        }
+
     }
     function _getNames() {
         const name1 = _getName('p1name')
         const name2 = _getName('p2name')
-        return [ name1, name2 ]
+        return [name1, name2]
     }
     function _getName(id) {
         return document.getElementById(id).value
+    }
+    function _addNames(names) {
+        const span1 = document.getElementById('p1-span')
+        const span2 = document.getElementById('p2-span')
+        span1.innerText = names[0]
+        span2.innerText = names[1]
     }
     function _showGame() {
         startBtn.classList.add('hidden');
         const containerDiv = document.getElementById('container')
         containerDiv.classList.remove('hidden')
+    }
+    function _hidePlayerInfoDiv() {
+        const playerInfoDiv = document.getElementById('player-info')
+        playerInfoDiv.classList.add('none')
+
     }
     return {
         initEventListeners

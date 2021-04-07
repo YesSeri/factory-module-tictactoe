@@ -22,9 +22,13 @@ body{
 .row {
     display: flex;
 }
-.container{
-    display:inline-block;
+#container{
+    display:flex;
+    flex-direction: column;
 }
 .hidden{
+    visibility: hidden;
+}
+.none{
     display: none;
 }
