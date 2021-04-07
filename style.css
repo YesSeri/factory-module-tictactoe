@@ -22,9 +22,8 @@ body{
 .row {
     display: flex;
 }
-#container{
-    display:flex;
-    justify-content: center;
+.container{
+    display:inline-block;
 }
 .hidden{
     display: none;
