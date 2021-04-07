@@ -181,9 +181,9 @@ const controller = (() => {
         span2.innerText = names[1]
     }
     function _showGame() {
-        startBtn.classList.add('hidden');
-        const containerDiv = document.getElementById('container')
-        containerDiv.classList.remove('hidden')
+        startBtn.classList.add('none');
+        const containerDiv = document.getElementById('game-container')
+        containerDiv.classList.remove('none')
     }
     function _hidePlayerInfoDiv() {
         const playerInfoDiv = document.getElementById('player-info')

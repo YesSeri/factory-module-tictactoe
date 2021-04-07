@@ -10,41 +10,43 @@
 </head>
 
 <body>
-    <h1>Tic-Tac-Toe for the Odin Project</h1>
-    <div id='player-info'>
-        <div>
-            <label for="p1name">p1 name:</label>
-            <input type="text" id="p1name" name="p1name">
-        </div>
-        <div>
-            <label for="p2name">p2 name:</label>
-            <input type="text" id="p2name" name="p2name">
-        </div>
-        <button id='start-btn'>Start</button>
-    </div>
-    <div class='hidden' id='container'>
-        <div><span id='p1-span'></span> vs <span id='p2-span'></span></div>
-        <div id="gameboard">
-            <div class="row">
-                <div id="square-0" class="square"></div>
-                <div id="square-1" class="square"></div>
-                <div id="square-2" class="square"></div>
+    <div id='container'>
+        <h1>Tic-Tac-Toe for the Odin Project</h1>
+        <div id='player-info'>
+            <div class='player-div'>
+                <label for="p1name">Player One:</label>
+                <input type="text" id="p1name" name="p1name">
             </div>
-            <div class="row">
-                <div id="square-3" class="square"></div>
-                <div id="square-4" class="square"></div>
-                <div id="square-5" class="square"></div>
+            <div class='player-div'>
+                <label for="p2name">Player Two:</label>
+                <input type="text" id="p2name" name="p2name">
             </div>
-            <div class="row">
-                <div id="square-6" class="square"></div>
-                <div id="square-7" class="square"></div>
-                <div id="square-8" class="square"></div>
+            <button id='start-btn'>Start</button>
+        </div>
+        <div class='none' id='game-container'>
+            <div id="player-names"><span id='p1-span'></span><span> vs </span><span id='p2-span'></span></div>
+            <div id="gameboard">
+                <div class="row">
+                    <div id="square-0" class="square"></div>
+                    <div id="square-1" class="square"></div>
+                    <div id="square-2" class="square"></div>
+                </div>
+                <div class="row">
+                    <div id="square-3" class="square"></div>
+                    <div id="square-4" class="square"></div>
+                    <div id="square-5" class="square"></div>
+                </div>
+                <div class="row">
+                    <div id="square-6" class="square"></div>
+                    <div id="square-7" class="square"></div>
+                    <div id="square-8" class="square"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div id='replay-div' class='hidden'>
-        <p id='win-message'></p>
-        <button id="replay-btn">Play Again</button>
+        <div id='replay-div' class='hidden'>
+            <p id='win-message'></p>
+            <button id="replay-btn">Play Again</button>
+        </div>
     </div>
     <script src="scripts.js"></script>
 </body>
