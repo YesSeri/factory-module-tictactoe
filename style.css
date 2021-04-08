@@ -26,6 +26,7 @@ html {
     width: auto;
 }
 
+
 #gameboard {
     width: 100%;
     font-size: 7em;
@@ -97,4 +98,15 @@ span {
         height: 100px;
         width: min(100px, 33%);
     }
+}
+button{
+    color: black;
+    border: none;
+    box-shadow: 1px 1px 3px;
+    padding:10px 20px;
+    background-color: rgb(255, 176, 25);
+    border-radius: 5px;
+}
+button:hover{
+    background-color: rgb(255, 165, 0);
 }
