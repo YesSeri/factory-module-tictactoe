@@ -10,10 +10,10 @@ html {
 }
 
 .square {
-    border: solid 1px black;
-    width: 150px;
-    height: 150px;
-    margin: 1px;
+    border: solid 2px black;
+    width: min(250px, 33%);
+    height: 250px;
+    margin: 2px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -27,28 +27,40 @@ html {
 }
 
 #gameboard {
+    width: 100%;
     font-size: 7em;
     font-family: monospace;
     margin: auto;
 }
 
-span{
-    padding:5px;
-}
-#player-names{
-    margin:10px;
-    padding:10px;
-}
-.row {
-    display: flex;
+span {
+    padding: 5px;
 }
 
-#container{
+#player-names {
+    margin: 10px;
+    padding: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+#container {
     padding-top: 0.3em;
     padding-bottom: 1.3em;
-    width: 80%;
-    margin:auto;
-    background-color: rgba(255, 255,255, 0.7);
+    width: 60%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#replay-div{
+
+    padding-bottom:10px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 #game-container {
     display: flex;
@@ -61,4 +73,28 @@ span{
 
 #game-container.none, .none {
     display: none;
+}
+
+@media only screen and (max-width: 1440px) {
+    /* For mobile phones: */
+    #container {
+        width: 80%;
+    }
+    .square {
+        height: 150px;
+        width: min(150px, 33%);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #container {
+        width: 100%;
+    }
+    .square {
+        border: solid 1px black;
+        margin: 1px;
+        height: 100px;
+        width: min(100px, 33%);
+    }
 }

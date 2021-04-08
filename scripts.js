@@ -78,7 +78,6 @@ const gameinfo = (() => {
     }
     function setActive() {
         _active = getTurn() === _p1.marker ? _p1 : _p2;
-        console.log(_active);
     }
     function getActive() {
         return _active
@@ -149,7 +148,6 @@ const controller = (() => {
         if (gameinfo.getActive().makeMove(idx)) {
             gameinfo.nextTurn();
         }
-        console.log(gameboard.checkWin(), gameboard.checkDraw());
         if (gameboard.checkWin() || gameboard.checkDraw()) {
             gameinfo.gameover = true;
             _setWinMessage();
@@ -159,7 +157,6 @@ const controller = (() => {
     function _setWinMessage(){
         const message  = document.getElementById('win-message')
         if(gameboard.checkWin()){
-            console.log(gameinfo.getActive);
             message.innerHTML = `Congratulations to ${gameinfo.getActive().name}`
         } else{
             message.innerHTML = 'It is a draw.'
